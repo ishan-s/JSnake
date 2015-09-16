@@ -1,10 +1,17 @@
 <html>
     <head>
- 
+        <title>JSnake by Ishan Shrivastava </title>
+        <link rel="stylesheet" ty[e = "text/css" href="styles/snake-main.css"/>
     </head>
     <body onload="init()">
         <div>
             <canvas id="game" width="500" height="500" style="border: 1px solid grey">Your browser does not supprt Canvas!</canvas>
+        </div>
+        <div id="gameover" class="gameOverVisible">
+            <span id="gameOverTextSpan" class="gameOverText">Game Over!</span>
+        </div>
+        <div id="controls">
+            <button type="button" onclick="reset()">Reset</button>
         </div>
            <script src="scripts/snake.js"></script>
     </body>

@@ -29,6 +29,9 @@ function drawSnake(){
     }
 }
 
+function reset(){
+    location.reload();
+}
 function drawFood(newfood){
     if(newfood){
     foodx = Math.floor(Math.random()*numCellsX);
@@ -241,7 +244,7 @@ function collision(){
 
 function gameOver(){
     //ctx.clearRect(0, 0, canvasg.width, canvasg.height);
-    document.body.style.backgroundColor="#FF0000";
+    document.getElementById("gameover").className = "gameOverVisible";
     clearTimeout(timer);
 }
 function growSnake(s){
