@@ -162,21 +162,21 @@ function moveHead(){
             case DIR.up:
                 snake.y = snake.y-1;
                 if(snake.y<0)
-                    snake.y=numCellsY;
+                    snake.y=numCellsY-1;
                 break;
             case DIR.down:
                 snake.y = snake.y+1;
-                if(snake.y>numCellsY)
+                if(snake.y>(numCellsY-1))
                     snake.y=0;
                 break;
             case DIR.left:
                 snake.x = snake.x-1;
                 if(snake.x<0)
-                    snake.x=numCellsX;
+                    snake.x=numCellsX-1;
                 break;
             case DIR.right:
                 snake.x = snake.x+1;
-                if(snake.x>numCellsX)
+                if(snake.x>(numCellsX-1))
                     snake.x=0;
                 break;
     }
