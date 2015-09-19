@@ -5,7 +5,12 @@ var canvasg = document.getElementById('game');
 var life = 0;
 var foodx;
 var foody;
+var bonusx;
+var bonusy;
 var ate = true;
+var ateBonus = true;
+var score = 0;
+var scoreE = document.getElementById('nscore');
 
 console.log(JSON.stringify(canvasg));
 var ctx = canvasg.getContext('2d');
@@ -40,6 +45,22 @@ function drawFood(newfood){
     }
 
     colorCell(ctx, foodx, foody, "rgb(0, 255, 0)");
+}
+
+function drawBonus(newBonus, ateB){
+    if(newBonus){
+    bonusx = Math.floor(Math.random()*numCellsX);
+    bonusy = Math.floor(Math.random()*numCellsY);
+    ateBonus = false;
+    }
+    if(ateB || bonusLife<=0){
+        bonusx=-1; bonusy=-1;
+    }
+    
+    if(life%2==0)
+        colorCell(ctx, bonusx, bonusy, "rgb(255, 0, 0)");
+    else
+        colorCell(ctx, bonusx, bonusy, "rgb(255, 200, 0)");
 }
 
 function clearCanvas(){
@@ -139,14 +160,16 @@ var snake = {
 function init(){
     for(var j=0; j<snake.bsize; j++)
         console.log("INIT: "+JSON.stringify(snake.sbody.cell[j]));
-    timer = setInterval(redraw, 100);
+    timer = setInterval(redraw, 75);
 }
 
+var bonusLife = 20;
 function redraw(){
     //console.log("redraw");
     life++;
     clearCanvas();
     moveHead();
+    
     console.log("Head[x="+snake.x+", y="+snake.y+"]");
     //console.log(JSON.stringify(snake.sbody));
     if(life%10==0){
@@ -154,9 +177,22 @@ function redraw(){
     }else{
         drawFood(false);
     }
+    
+    if(life%50==0){
+        bonusLife=20;
+        drawBonus(true, false);
+    }
+    else{
+        drawBonus(false, ateBonus);
+        bonusLife--;
+    }
+    
     drawSnake();
 }
 
+function updateScore(){
+    scoreE.innerHTML = score;
+}
 function moveHead(){
         switch(cDirection){
             case DIR.up:
@@ -191,12 +227,20 @@ function moveHead(){
     if(snake.sbody.cell[0].x==foodx && snake.sbody.cell[0].y==foody){
         growSnake(1);
         ate = true;
+        
+        score+=10;
+        updateScore();
+    }
+        if(snake.sbody.cell[0].x==bonusx && snake.sbody.cell[0].y==bonusy){
+        growSnake(1);
+        ateBonus = true;
+        
+        score+=100;
+        updateScore();
     }
     
     moveBody();
     
-        
-
 }
 
 

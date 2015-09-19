@@ -11,7 +11,12 @@
             <span id="gameOverTextSpan" class="gameOverText">Game Over!</span>
         </div>
         <div id="controls">
-            <button type="button" onclick="reset()">Reset</button>
+            <table style="width:500px">
+                <tr>
+                <td class="score">Score:&nbsp;<span id="nscore">0</span></td>
+                <td style="text-align:right"><button type="button" onclick="reset()">Reset</button></td>
+                </tr>
+            </table>
         </div>
            <script src="scripts/snake.js"></script>
     </body>
