@@ -55,7 +55,7 @@ function drawFood(newfood){
     ate = false;
     }
 
-    colorCell(ctx, foodx, foody, "rgb(0, 255, 0)");
+    colorCell(ctx, foodx, foody, "rgb(50, 150, 50)");
 }
 
 function drawBonus(newBonus, ateB){
