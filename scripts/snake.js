@@ -41,7 +41,7 @@ function drawSnake(){
     for(var i=0; i<snake.bsize; i++){
       //  console.log("Coloring: "+JSON.stringify(snake.sbody.cell[i]));
        // console.log("***"+i);
-        colorCell(ctx, snake.sbody.cell[i].x, snake.sbody.cell[i].y, "rgb(0,0,0)");
+        colorCell(ctx, snake.sbody.cell[i].x, snake.sbody.cell[i].y, "rgb(50,50,50)");
     }
 }
 
