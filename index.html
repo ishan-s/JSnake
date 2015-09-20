@@ -5,7 +5,7 @@
     </head>
     <body onload="init()">
         <div>
-            <canvas id="game" width="500" height="500" style="background-color:grey; border: 3px inset black">Your browser does not supprt Canvas!</canvas>
+            <canvas id="game" width="500" height="500" style="background-color:lightgrey; border: 3px inset black">Your browser does not supprt Canvas!</canvas>
         </div>
         <div id="gameover" class="gameOverHidden">
             <span id="gameOverTextSpan" class="gameOverText">Game Over!</span>
@@ -14,7 +14,7 @@
             <table style="width:500px">
                 <tr class="score">
                     <td style="text-align:left">
-                    Difficulty:&nbsp;
+                    Level:
                     <input type="radio" name="difficulty" value="120" onclick="changeDifficulty(this)">Easy</input>
                     <input type="radio" name="difficulty" value="75" onclick="changeDifficulty(this)" checked>Not so easy</input>
                     <input type="radio" name="difficulty" value="50" onclick="changeDifficulty(this)">Hard</input>
