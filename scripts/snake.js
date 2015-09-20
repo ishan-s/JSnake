@@ -12,11 +12,22 @@ var ateBonus = true;
 var score = 0;
 var scoreE = document.getElementById('nscore');
 
+
+
 console.log(JSON.stringify(canvasg));
 var ctx = canvasg.getContext('2d');
 var CELL_SIZE = 10;
 var numCellsX = canvasg.width / CELL_SIZE;
 var numCellsY = canvasg.height / CELL_SIZE;
+
+
+function changeDifficulty(v){
+    clearTimeout(timer);
+    console.log("Difficulty: "+v.value);
+    
+    timer = setInterval(redraw, Number(v.value));
+    document.activeElement.blur();
+}
 
 function colorCell(ctx, cellx, celly, rgbColor){
     ctx.fillStyle = rgbColor;
@@ -163,7 +174,7 @@ function init(){
     timer = setInterval(redraw, 75);
 }
 
-var bonusLife = 20;
+var bonusLife = 30;
 function redraw(){
     //console.log("redraw");
     life++;
@@ -179,7 +190,7 @@ function redraw(){
     }
     
     if(life%50==0){
-        bonusLife=20;
+        bonusLife=30;
         drawBonus(true, false);
     }
     else{

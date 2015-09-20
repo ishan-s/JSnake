@@ -12,10 +12,21 @@
         </div>
         <div id="controls">
             <table style="width:500px">
+                <tr class="score">
+                    <td style="text-align:left">
+                    Difficulty:&nbsp;
+                    <input type="radio" name="difficulty" value="120" onclick="changeDifficulty(this)">Easy</input>
+                    <input type="radio" name="difficulty" value="75" onclick="changeDifficulty(this)" checked>Not so easy</input>
+                    <input type="radio" name="difficulty" value="50" onclick="changeDifficulty(this)">Hard</input>
+                    <input type="radio" name="difficulty" value="30" onclick="changeDifficulty(this)">Bring it on!</input>
+                    </td>
+                
+                </tr>
                 <tr>
                 <td class="score">Score:&nbsp;<span id="nscore">0</span></td>
                 <td style="text-align:right"><button type="button" onclick="reset()">Reset</button></td>
                 </tr>
+
             </table>
         </div>
            <script src="scripts/snake.js"></script>
