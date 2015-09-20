@@ -174,7 +174,7 @@ function init(){
     timer = setInterval(redraw, 75);
 }
 
-var bonusLife = 30;
+var bonusLife = 40;
 function redraw(){
     //console.log("redraw");
     life++;
@@ -189,8 +189,8 @@ function redraw(){
         drawFood(false);
     }
     
-    if(life%50==0){
-        bonusLife=30;
+    if(life%100==0){
+        bonusLife=40;
         drawBonus(true, false);
     }
     else{
